@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bio - RTB Yacht Rock</title>
     <!-- Font Awesome CDN for professional social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -9,7 +10,7 @@
     <!-- Responsive Logo Style -->
     <style>
         .nav-logo {
-            width: 50px;
+            width: 75px;
             border-radius: 6px;
             vertical-align: middle;
         }
@@ -23,96 +24,36 @@
 <body style="background-color: #0284c7; color: #ffffff; font-family: sans-serif; text-align: center; margin: 0; padding: 0;">
 
     <!-- Top Navigation Bar -->
-    <div style="background-color: #0369a1; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="background-color: #0369a1; padding: 15px 15px; display: flex; justify-content: space-between; align-items: center;">
         
         <!-- Logo acting as permanent Home Link -->
         <a href="index.html">
             <img src="images/rtb_logo_2.jpg" alt="RTB Logo" class="nav-logo">
         </a>
 
-        <!-- Navigation Links -->
-        <div>
-            <a href="index.html" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Home</a>
-            <a href="gigs.html" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Gigs</a>
-            <a href="bio.html" style="color: #ffffff; text-decoration: none; margin: 0 15px; font-weight: bold;">Bio</a>
-            <a href="media.html" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Media</a>
-            <a href="contact.html" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Contact</a>
+        <!-- Navigation Links with compact mobile spacing -->
+        <div style="font-size: 14px;">
+            <a href="index.html" style="color: #ffffff; text-decoration: none; margin: 0 5px;">Home</a>
+            <a href="gigs.html" style="color: #ffffff; text-decoration: none; margin: 0 5px;">Gigs</a>
+            <a href="bio.html" style="color: #ffffff; text-decoration: none; margin: 0 5px; font-weight: bold;">Bio</a>
+            <a href="media.html" style="color: #ffffff; text-decoration: none; margin: 0 5px;">Media</a>
+            <a href="contact.html" style="color: #ffffff; text-decoration: none; margin: 0 5px;">Contact</a>
         </div>
     </div>
 
     <!-- Bio Content Area -->
     <div style="padding: 40px 20px; max-width: 700px; margin: 0 auto; text-align: left;">
-        <h2 style="text-align: center; margin-bottom: 30px;">The Band</h2>
+        <h2 style="text-align: center; margin-bottom: 30px; color: #fef08a; font-weight: bold;">Band Bio</h2>
         
-        <!-- Main Band Bio Box -->
-        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3);">
-            <p id="main-bio" style="font-size: 18px; line-height: 1.6; margin-top: 0;">Loading band bio...</p>
-        </div>
-
-        <!-- Band Members Section -->
-        <h3 style="text-align: center; margin-bottom: 25px; font-size: 22px;">Meet the Crew</h3>
+        <!-- Justified Bio Paragraphs -->
+        <p style="font-size: 18px; line-height: 1.6; margin-bottom: 25px; color: rgba(255, 255, 255, 0.9); text-align: justify;">
+            RTB Yacht Rock brings together seasoned Chicago musicians dedicated to faithfully recreating the pristine studio sounds, infectious grooves, and soaring vocal harmonies of the golden age of soft rock. 
+        </p>
         
-        <!-- PJ Relova -->
-        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #fef08a;">PJ Relova</h4>
-            <p style="margin: 0 0 5px 0; font-size: 15px; color: #fef08a; font-weight: bold;">Vocals</p>
-            <p id="bio-pj" style="margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.9);">Loading bio...</p>
-        </div>
-
-        <!-- Stephen Thomas -->
-        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #fef08a;">Stephen Thomas</h4>
-            <p style="margin: 0 0 5px 0; font-size: 15px; color: #fef08a; font-weight: bold;">Drums, Background Vocals</p>
-            <p id="bio-stephen" style="margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.9);">Loading bio...</p>
-        </div>
-
-        <!-- Judy Director -->
-        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #fef08a;">Judy Director</h4>
-            <p style="margin: 0 0 5px 0; font-size: 15px; color: #fef08a; font-weight: bold;">Keyboards, Background Vocals</p>
-            <p id="bio-judy" style="margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.9);">Loading bio...</p>
-        </div>
-
-        <!-- June -->
-        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #fef08a;">June</h4>
-            <p style="margin: 0 0 5px 0; font-size: 15px; color: #fef08a; font-weight: bold;">Bass, Background Vocals</p>
-            <p id="bio-june" style="margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.9);">Loading bio...</p>
-        </div>
-
-        <!-- Ken Krzywicki -->
-        <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #fef08a;">Ken Krzywicki</h4>
-            <p style="margin: 0 0 5px 0; font-size: 15px; color: #fef08a; font-weight: bold;">Guitar</p>
-            <p id="bio-ken" style="margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.9);">Loading bio...</p>
-        </div>
-
+        <p style="font-size: 18px; line-height: 1.6; margin-bottom: 25px; color: rgba(255, 255, 255, 0.9); text-align: justify;">
+            From timeless radio classics by Michael McDonald, Hall & Oates, and Steely Dan to deep cuts that every true yacht rock aficionado loves, the band delivers an authentic, feel-good live experience guaranteed to get crowds moving.
+        </p>
     </div>
-
-    <!-- JavaScript to automatically fetch text files -->
-    <script>
-        async function loadTextFile(filePath, elementId) {
-            try {
-                let response = await fetch(filePath);
-                if (response.ok) {
-                    let text = await response.text();
-                    document.getElementById(elementId).innerText = text;
-                } else {
-                    document.getElementById(elementId).innerText = "[Bio coming soon]";
-                }
-            } catch (error) {
-                document.getElementById(elementId).innerText = "[Bio coming soon]";
-            }
-        }
-
-        // Load all text files asynchronously on page load
-        loadTextFile('bios/main.txt', 'main-bio');
-        loadTextFile('bios/pj.txt', 'bio-pj');
-        loadTextFile('bios/stephen.txt', 'bio-stephen');
-        loadTextFile('bios/judy.txt', 'bio-judy');
-        loadTextFile('bios/june.txt', 'bio-june');
-        loadTextFile('bios/ken.txt', 'bio-ken');
-    </script>
 
 </body>
 </html>
