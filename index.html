@@ -2,44 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RTB Yacht Rock</title>
+    <title>Gigs - RTB Yacht Rock</title>
     <!-- Font Awesome CDN for professional social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body style="background-color: #0284c7; color: #ffffff; font-family: sans-serif; text-align: center; margin: 0; padding: 0;">
 
-    <!-- Top Navigation Bar (Home Page Version: Right-aligned links only) -->
-    <div style="background-color: #0369a1; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
+    <!-- Top Navigation Bar (Subpage Version: Logo on left, links on right) -->
+    <div style="background-color: #0369a1; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+        
+        <!-- Logo acting as permanent Home Link -->
+        <a href="index.html">
+            <img src="images/rtb_logo_2.jpg" alt="RTB Logo" width="50" style="border-radius: 6px; vertical-align: middle;">
+        </a>
+
+        <!-- Navigation Links -->
         <div>
-            <a href="index.html" style="color: #ffffff; text-decoration: none; margin: 0 15px; font-weight: bold;">Home</a>
-            <a href="#gigs" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Gigs</a>
+            <a href="index.html" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Home</a>
+            <a href="gigs.html" style="color: #ffffff; text-decoration: none; margin: 0 15px; font-weight: bold;">Gigs</a>
             <a href="#bio" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Bio</a>
-            <a href="#media" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Media</a>
+            <a href="media.html" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Media</a>
             <a href="#contact" style="color: #ffffff; text-decoration: none; margin: 0 15px;">Contact</a>
         </div>
     </div>
 
-    <!-- Main Content Area -->
-    <div style="padding: 40px;">
-        <!-- ocean blue background with white font color -->
-        <img src="images/rtb_logo_2.jpg" alt="RTB Logo" width="250" style="margin-bottom: 20px; border-radius: 8px;">
-
-        <h2>Chicago's Yacht Rock Experience</h2>
-
-        <p>Website launching soon.</p>
-
-        <p>Smooth grooves. Classic harmonies. Good vibes.</p>
-
-        <!-- Instagram Icon Button -->
-        <div style="margin-top: 30px;">
-            <a href="https://www.instagram.com/relovathomasband/" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 18px; font-weight: bold; background-color: rgba(255, 255, 255, 0.2); padding: 12px 25px; border-radius: 30px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.4);">
-                <i class="fa-brands fa-instagram" style="margin-right: 8px; font-size: 20px;"></i> Follow @relovathomasband
-            </a>
-        </div>
-    </div>
-
-<!-- Gigs Section -->
-    <div id="gigs" style="padding: 60px 20px; border-top: 1px solid rgba(255, 255, 255, 0.2); max-width: 600px; margin: 0 auto; text-align: left;">
+    <!-- Gigs Content Area -->
+    <div style="padding: 40px 20px; max-width: 600px; margin: 0 auto; text-align: left;">
         <h2 style="text-align: center; margin-bottom: 30px;">Live Gigs</h2>
         
         <!-- Upcoming Show Card -->
@@ -65,9 +53,6 @@
             <li>May 29, 2026 — Friendly Tap, Berwyn, IL</li>
         </ul>
     </div>
-
-
-    
 
 </body>
 </html>
