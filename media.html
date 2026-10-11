@@ -6,14 +6,47 @@
     <title>RTB Yacht Rock - Media</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f9;
             color: #333;
+        }
+        /* Header / Navigation Bar */
+        header {
+            background-color: #1a1a2e;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        .logo-area {
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        nav {
+            white-space: nowrap;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
             text-align: center;
         }
         h1 {
+            margin-top: 20px;
             margin-bottom: 5px;
         }
         .subtitle {
@@ -33,8 +66,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto 40px auto;
+            margin-bottom: 40px;
         }
         .gallery-item {
             background: #fff;
@@ -82,45 +114,56 @@
 </head>
 <body>
 
-    <h1>Media</h1>
-    <div class="subtitle">Photos and clips from the road</div>
+    <!-- Site Header / Navigation -->
+    <header>
+        <div class="logo-area">
+            RTB
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gigs.html">Gigs</a>
+            <a href="bio.html">Bio</a>
+            <a href="media.html">Media</a>
+        </nav>
+    </header>
 
-    <!-- PHOTO GALLERY -->
-    <div class="section-title">Photo Gallery</div>
-    <div class="gallery-grid">
-        
-        <!-- Photo with caption -->
-        <div class="gallery-item">
-            <img src="images/friendly_01.png" alt="Band live performance">
-            <div class="caption">Getting into the groove</div>
+    <div class="container">
+        <h1>Media</h1>
+        <div class="subtitle">Photos and clips from the road</div>
+
+        <!-- PHOTO GALLERY -->
+        <div class="section-title">Photo Gallery</div>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="images/friendly_01.png" alt="Band live performance">
+                <div class="caption">Getting into the groove</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/friendly_02.png" alt="Live performance shot">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/group_pic_friendly.png" alt="Band group photo">
+                <div class="caption">The crew</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/ken_01.jpg" alt="Ken playing live">
+            </div>
+
         </div>
 
-        <!-- Photo without caption -->
-        <div class="gallery-item">
-            <img src="images/friendly_02.png" alt="Live performance shot">
+        <!-- VIDEO SECTION -->
+        <div class="section-title">Videos</div>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- PJ's brother's video as a placeholder... unless we don't like it -->
+                <iframe src="https://www.youtube.com/embed/IX7Uhui463E" allowfullscreen></iframe>
+            </div>
+            <div class="caption">Live bootleg footage (9/6 Gig)</div>
         </div>
-
-        <!-- Photo with caption -->
-        <div class="gallery-item">
-            <img src="images/group_pic_friendly.png" alt="Band group photo">
-            <div class="caption">The crew</div>
-        </div>
-
-        <!-- Photo without caption -->
-        <div class="gallery-item">
-            <img src="images/ken_01.png" alt="Ken playing live">
-        </div>
-
-    </div>
-
-    <!-- VIDEO SECTION -->
-    <div class="section-title">Videos</div>
-    <div class="video-container">
-        <!-- Placeholder for YouTube embed once BL sets up the channel -->
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe>
-        </div>
-        <div class="caption">Live promo clip</div>
     </div>
 
 </body>
