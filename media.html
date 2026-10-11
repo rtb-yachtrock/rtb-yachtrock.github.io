@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTB Yacht Rock - Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #ddd;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
+        .gallery-item {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+        .caption {
+            font-size: 14px;
+            color: #555;
+            margin-top: 8px;
+            text-align: center;
+        }
+        /* Video Section */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #000;
+            margin-bottom: 15px;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Media</h1>
+    <div class="subtitle">Photos and clips from the road</div>
+
+    <!-- PHOTO GALLERY -->
+    <div class="section-title">Photo Gallery</div>
+    <div class="gallery-grid">
+        
+        <!-- Photo with caption -->
+        <div class="gallery-item">
+            <img src="images/friendly_01.png" alt="Band live performance">
+            <div class="caption">Getting into the groove</div>
+        </div>
+
+        <!-- Photo without caption -->
+        <div class="gallery-item">
+            <img src="images/friendly_02.png" alt="Live performance shot">
+        </div>
+
+        <!-- Photo with caption -->
+        <div class="gallery-item">
+            <img src="images/group_pic_friendly.png" alt="Band group photo">
+            <div class="caption">The crew</div>
+        </div>
+
+        <!-- Photo without caption -->
+        <div class="gallery-item">
+            <img src="images/ken_01.png" alt="Ken playing live">
+        </div>
+
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="section-title">Videos</div>
+    <div class="video-container">
+        <!-- Placeholder for YouTube embed once BL sets up the channel -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe>
+        </div>
+        <div class="caption">Live promo clip</div>
+    </div>
+
+</body>
+</html>
