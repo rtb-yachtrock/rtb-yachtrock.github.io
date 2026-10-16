@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <!-- Contact Content Area -->
+<!-- Contact Content Area -->
     <div style="padding: 40px 20px; max-width: 600px; margin: 0 auto; text-align: justify;">
         <h2 style="margin-bottom: 20px; color: #fef08a; font-weight: bold;">Get in Touch</h2>
 
@@ -57,7 +57,43 @@
             </a>
         </div>
 
-        <p style="font-size: 14px; color: rgba(255, 255, 255, 0.7); font-style: italic;">
+        <!-- Mailing List Sign Up Box -->
+        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-top: 30px; border: 1px solid rgba(255, 255, 255, 0.3);">
+            <div style="color: #fef08a; font-weight: bold; font-size: 14px; margin-bottom: 8px;">Mailing List</div>
+            <div style="font-size: 18px; color: #fef08a; font-weight: bold; margin-bottom: 8px;">Join Our Mailing List</div>
+            <p style="margin: 0 0 15px 0; color: rgba(255, 255, 255, 0.9); font-size: 14px;">
+                Get notified when we announce new shows.
+            </p>
+            
+            <!-- Simple Form configured to email rtb-yachtrock@gmail.com -->
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+                
+                <!-- TODO: Stephen needs to go to web3forms.com using rtb-yachtrock@gmail.com to get the free access key -->
+                <input type="hidden" name="access_key" value="PENDING_STEPHEN_KEY">
+                
+                <!-- Customizes the incoming email subject line -->
+                <input type="hidden" name="subject" value="New Subscriber">
+                
+                <!-- Optional: Keeps spam bots away -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <div>
+                    <label style="font-size: 13px; display: block; margin-bottom: 4px; color: #fef08a;">Name</label>
+                    <input type="text" name="name" required placeholder="Your Name" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.9); color: #000; box-sizing: border-box;">
+                </div>
+
+                <div>
+                    <label style="font-size: 13px; display: block; margin-bottom: 4px; color: #fef08a;">Email</label>
+                    <input type="email" name="email" required placeholder="your.email@example.com" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.9); color: #000; box-sizing: border-box;">
+                </div>
+
+                <button type="submit" style="background-color: #ffffff; color: #0284c7; padding: 10px 16px; border: none; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; cursor: pointer; margin-top: 5px; align-self: flex-start;">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+
+        <p style="font-size: 14px; color: rgba(255, 255, 255, 0.7); font-style: italic; margin-top: 30px;">
             Based in the Chicago area.
         </p>
     </div>
