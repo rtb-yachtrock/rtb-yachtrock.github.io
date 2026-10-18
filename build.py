@@ -60,7 +60,11 @@ with open("index.html", "w", encoding="utf-8") as f:
 
 
 # --- 4. BUILD GIGS.HTML SNIPPET ---
-gigs_section_html = "<!-- GIGS_CONTENT_START -->\n"
+# We wrap everything in a centered max-width container so it doesn't stretch edge-to-edge
+gigs_section_html = (
+    '<!-- GIGS_CONTENT_START -->\n<div style="max-width: 600px; margin: 40px'
+    ' auto; padding: 0 20px; text-align: center;">\n'
+)
 
 if upcoming:
   # Render the FIRST upcoming show as the prominent hero card
@@ -80,7 +84,7 @@ if upcoming:
   )
 
   gigs_section_html += f"""        <!-- Upcoming Show Card -->
-        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.3);">
+        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: left;">
             <div style="color: #fef08a; font-weight: bold; text-transform: uppercase; font-size: 14px; margin-bottom: 8px;">Next Up</div>
             <div style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">{first_gig['displayDate']}{time_disp}</div>
             <div style="font-size: 18px; margin-bottom: 12px;">
@@ -95,7 +99,7 @@ if upcoming:
   # Render any SUBSEQUENT upcoming shows as a clean list
   if len(upcoming) > 1:
     gigs_section_html += """        <!-- Other Upcoming Shows List -->
-        <h3 style="text-align: center; margin-top: 40px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold; ">Later On</h3>
+        <h3 style="text-align: center; margin-top: 40px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold; ">Upcoming</h3>
         <ul style="list-style: none; padding: 0; line-height: 2.2; color: rgba(255, 255, 255, 0.9); text-align: center; margin-bottom: 40px;">\n"""
 
     for gig in upcoming[1:]:
@@ -126,6 +130,7 @@ for gig in past:
   )
 
 gigs_section_html += """        </ul>
+</div>
         <!-- GIGS_CONTENT_END -->"""
 
 with open("gigs.html", "r", encoding="utf-8") as f:
