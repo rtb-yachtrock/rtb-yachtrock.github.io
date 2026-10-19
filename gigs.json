@@ -7,8 +7,7 @@
     "venueUrl": "https://www.montrosesaloon.com/",
     "location": "Chicago, IL",
     "mapQuery": "2933+W+Montrose+Ave+Chicago+IL+60618",
-    "details": "Forthcoming",
-    "status": "upcoming"
+    "details": "Cover or not???"
   },
   {
     "date": "2026-11-06",
@@ -18,8 +17,7 @@
     "venueUrl": "https://www.friendlymusic.community/",
     "location": "Berwyn, IL",
     "mapQuery": "6733+Roosevelt+Rd+Berwyn+IL+60402",
-    "details": "No Cover",
-    "status": "upcoming"
+    "details": "No Cover"
   },
   {
     "date": "2026-09-06",
@@ -29,8 +27,7 @@
     "venueUrl": "https://www.friendlymusic.community/",
     "location": "Berwyn, IL",
     "mapQuery": "6733+Roosevelt+Rd+Berwyn+IL+60402",
-    "details": "",
-    "status": "past"
+    "details": "No Cover"
   },
   {
     "date": "2026-06-16",
@@ -39,9 +36,8 @@
     "venue": "O’s Tap",
     "venueUrl": "",
     "location": "Chicago, IL",
-    "mapQuery": "O's+Tap+Chicago+IL",
-    "details": "",
-    "status": "past"
+    "mapQuery": "2044+North+Western+Ave+Chicago+IL",
+    "details": "No Cover"
   },
   {
     "date": "2026-05-29",
@@ -51,7 +47,6 @@
     "venueUrl": "https://www.friendlymusic.community/",
     "location": "Berwyn, IL",
     "mapQuery": "6733+Roosevelt+Rd+Berwyn+IL+60402",
-    "details": "",
-    "status": "past"
+    "details": "No Cover"
   }
 ]
