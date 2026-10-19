@@ -60,14 +60,13 @@ with open("index.html", "w", encoding="utf-8") as f:
 
 
 # --- 4. BUILD GIGS.HTML SNIPPET ---
-# Container is centered on the page, but internal text/lists are left-aligned for maximum readability
 gigs_section_html = (
     '<!-- GIGS_CONTENT_START -->\n<div style="max-width: 600px; margin: 40px'
     ' auto; padding: 0 20px; text-align: left;">\n'
 )
 
 if upcoming:
-  # Render the FIRST upcoming show hero card (left-aligned text)
+  # Render the FIRST upcoming show hero card with enlarged 18px "NEXT UP" heading to match section headers
   first_gig = upcoming[0]
   time_disp = format_time(first_gig["time"])
   venue_display = (
@@ -85,7 +84,7 @@ if upcoming:
 
   gigs_section_html += f"""        <!-- Upcoming Show Card -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3);">
-            <div style="color: #fef08a; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px;">Next Up</div>
+            <div style="color: #fef08a; font-weight: bold; text-transform: uppercase; font-size: 18px; letter-spacing: 1px; margin-bottom: 12px;">Next Up</div>
             <div style="font-size: 22px; color: #fef08a; font-weight: bold; margin-bottom: 6px;">{venue_display}</div>
             <div style="font-size: 16px; color: #ffffff; font-weight: bold; margin-bottom: 6px;">{first_gig['displayDate']}{time_disp}</div>
             <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: 12px;">{first_gig['location']}</div>
