@@ -99,25 +99,24 @@ if upcoming:
             </a>
         </div>\n"""
 
-  # Render any SUBSEQUENT upcoming shows as a left-aligned list
+  # Render any SUBSEQUENT upcoming shows as stacked rows
   if len(upcoming) > 1:
     gigs_section_html += """        <!-- Other Upcoming Shows List -->
-        <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 18px; color: #fef08a; font-weight: bold;">Upcoming</h3>
-        <ul style="list-style: none; padding: 0; line-height: 2.2; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px;">\n"""
+        <h3 style="margin-top: 30px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold;">Upcoming</h3>
+        <ul style="list-style: none; padding: 0; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px;">\n"""
 
     for gig in upcoming[1:]:
       v_display = (
-          f'<a href="{gig["venueUrl"]}" target="_blank" style="color: #ffffff; text-decoration: underline; font-weight: bold;">'
+          f'<a href="{gig["venueUrl"]}" target="_blank" style="color: #fef08a; text-decoration: underline; font-weight: bold;">'
           f"{gig['venue']}</a>"
           if gig["venueUrl"]
           else gig["venue"]
       )
       t_disp = format_time(gig["time"])
-      gigs_section_html += (
-          f"            <li style=\"margin-bottom: 12px;\">• {gig['displayDate']}{t_disp} — "
-          f"{v_display}, {gig['location']} "
-          f'(<a href="https://maps.google.com/?q={gig["mapQuery"]}" target="_blank" style="color: #fef08a; text-decoration: underline; font-size: 13px;">Map</a>)</li>\n'
-      )
+      gigs_section_html += f"""            <li style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                <div style="font-size: 15px; color: #ffffff; font-weight: bold; margin-bottom: 4px;">{gig['displayDate']}{t_disp}</div>
+                <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9);">{v_display}, {gig['location']} <a href="https://maps.google.com/?q={gig['mapQuery']}" target="_blank" style="color: #fef08a; text-decoration: underline; font-size: 13px; margin-left: 6px;">(Map)</a></div>
+            </li>\n"""
 
     gigs_section_html += "        </ul>\n"
 else:
@@ -127,16 +126,16 @@ else:
             <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); font-style: italic;">Check back soon for new dates and venues!</div>
         </div>\n"""
 
-# Render past shows list (left-aligned)
+# Render past shows list (stacked cleanly as well)
 gigs_section_html += """        <!-- Past Gigs List -->
-        <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 18px; color: #fef08a; font-weight: bold;">Past Shows</h3>
-        <ul style="list-style: none; padding: 0; line-height: 2.0; color: rgba(255, 255, 255, 0.8);">\n"""
+        <h3 style="margin-top: 30px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold;">Past Shows</h3>
+        <ul style="list-style: none; padding: 0; color: rgba(255, 255, 255, 0.8);">\n"""
 
 for gig in past:
-  gigs_section_html += (
-      f"            <li style=\"margin-bottom: 8px;\">• {gig['displayDate']} — {gig['venue']}, "
-      f"{gig['location']}</li>\n"
-  )
+  gigs_section_html += f"""            <li style="margin-bottom: 16px;">
+                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); font-weight: bold; margin-bottom: 2px;">{gig['displayDate']}</div>
+                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.85);">{gig['venue']}, {gig['location']}</div>
+            </li>\n"""
 
 gigs_section_html += """        </ul>
 </div>
