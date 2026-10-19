@@ -29,11 +29,9 @@ def format_time(time_str):
 
 
 # --- 3. BUILD INDEX.HTML SNIPPET ---
-index_next_up_html = ""
 if upcoming:
   next_gig = upcoming[0]
   time_disp = format_time(next_gig["time"])
-
   index_next_up_html = f"""<!-- NEXT_UP_START -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: left;">
             <div style="color: #fef08a; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">Next Up</div>
@@ -42,6 +40,13 @@ if upcoming:
             <a href="gigs.html" style="background-color: #ffffff; color: #0284c7; padding: 8px 18px; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block;">
                 View All Gigs & Details →
             </a>
+        </div>
+        <!-- NEXT_UP_END -->"""
+else:
+  index_next_up_html = """<!-- NEXT_UP_START -->
+        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: left;">
+            <div style="color: #fef08a; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">Next Up</div>
+            <div style="font-size: 16px; color: rgba(255, 255, 255, 0.9); font-style: italic;">Check back soon for upcoming show announcements!</div>
         </div>
         <!-- NEXT_UP_END -->"""
 
@@ -66,7 +71,7 @@ gigs_section_html = (
 )
 
 if upcoming:
-  # Render the FIRST upcoming show hero card with enlarged 18px "NEXT UP" heading to match section headers
+  # Render the FIRST upcoming show hero card
   first_gig = upcoming[0]
   time_disp = format_time(first_gig["time"])
   venue_display = (
@@ -115,6 +120,12 @@ if upcoming:
       )
 
     gigs_section_html += "        </ul>\n"
+else:
+  # Fallback message if there are zero upcoming shows
+  gigs_section_html += """        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: center;">
+            <div style="font-size: 18px; color: #fef08a; font-weight: bold; margin-bottom: 8px;">No upcoming shows right now</div>
+            <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); font-style: italic;">Check back soon for new dates and venues!</div>
+        </div>\n"""
 
 # Render past shows list (left-aligned)
 gigs_section_html += """        <!-- Past Gigs List -->
