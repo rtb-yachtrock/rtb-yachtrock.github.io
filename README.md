@@ -1,4 +1,4 @@
-# Relova Thomas Yacht Rock Website
+# Relova Thomas Yacht Rock Band Website
 
 Source code and assets for the RTB Yacht Rock band website, hosted via GitHub Pages.
 
