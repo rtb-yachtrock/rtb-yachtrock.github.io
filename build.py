@@ -34,8 +34,8 @@ if upcoming:
   time_disp = format_time(next_gig["time"])
   index_next_up_html = f"""<!-- NEXT_UP_START -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: left;">
-            <div style="color: #fef08a; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">Next Up</div>
-            <div style="font-size: 18px; color: #fef08a; font-weight: bold; margin-bottom: 6px;">{next_gig['venue']}</div>
+            <div style="color: #fef08a; font-weight: bold; font-size: 18px; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Next Up</div>
+            <div style="font-size: 22px; color: #fef08a; font-weight: bold; margin-bottom: 6px;">{next_gig['venue']}</div>
             <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: 15px;">{next_gig['displayDate']}{time_disp}</div>
             <a href="gigs.html" style="background-color: #ffffff; color: #0284c7; padding: 8px 18px; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block;">
                 View All Gigs & Details →
@@ -45,7 +45,7 @@ if upcoming:
 else:
   index_next_up_html = """<!-- NEXT_UP_START -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: left;">
-            <div style="color: #fef08a; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;">Next Up</div>
+            <div style="color: #fef08a; font-weight: bold; font-size: 18px; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Next Up</div>
             <div style="font-size: 16px; color: rgba(255, 255, 255, 0.9); font-style: italic;">Check back soon for upcoming show announcements!</div>
         </div>
         <!-- NEXT_UP_END -->"""
