@@ -60,13 +60,14 @@ with open("index.html", "w", encoding="utf-8") as f:
 
 
 # --- 4. BUILD GIGS.HTML SNIPPET ---
+# Container is centered on the page, but internal text/lists are left-aligned for maximum readability
 gigs_section_html = (
     '<!-- GIGS_CONTENT_START -->\n<div style="max-width: 600px; margin: 40px'
-    ' auto; padding: 0 20px; text-align: center;">\n'
+    ' auto; padding: 0 20px; text-align: left;">\n'
 )
 
 if upcoming:
-  # Render the FIRST upcoming show with a proper venue-first hero layout
+  # Render the FIRST upcoming show hero card (left-aligned text)
   first_gig = upcoming[0]
   time_disp = format_time(first_gig["time"])
   venue_display = (
@@ -83,7 +84,7 @@ if upcoming:
   )
 
   gigs_section_html += f"""        <!-- Upcoming Show Card -->
-        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: left;">
+        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3);">
             <div style="color: #fef08a; font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px;">Next Up</div>
             <div style="font-size: 22px; color: #fef08a; font-weight: bold; margin-bottom: 6px;">{venue_display}</div>
             <div style="font-size: 16px; color: #ffffff; font-weight: bold; margin-bottom: 6px;">{first_gig['displayDate']}{time_disp}</div>
@@ -94,11 +95,11 @@ if upcoming:
             </a>
         </div>\n"""
 
-  # Render any SUBSEQUENT upcoming shows as a clean list
+  # Render any SUBSEQUENT upcoming shows as a left-aligned list
   if len(upcoming) > 1:
     gigs_section_html += """        <!-- Other Upcoming Shows List -->
-        <h3 style="text-align: center; margin-top: 30px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold; ">Upcoming</h3>
-        <ul style="list-style: none; padding: 0; line-height: 2.2; color: rgba(255, 255, 255, 0.9); text-align: center; margin-bottom: 40px;">\n"""
+        <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 18px; color: #fef08a; font-weight: bold;">Upcoming</h3>
+        <ul style="list-style: none; padding: 0; line-height: 2.2; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px;">\n"""
 
     for gig in upcoming[1:]:
       v_display = (
@@ -109,21 +110,21 @@ if upcoming:
       )
       t_disp = format_time(gig["time"])
       gigs_section_html += (
-          f"            <li style=\"margin-bottom: 12px;\">{gig['displayDate']}{t_disp} — "
+          f"            <li style=\"margin-bottom: 12px;\">• {gig['displayDate']}{t_disp} — "
           f"{v_display}, {gig['location']} "
           f'(<a href="https://maps.google.com/?q={gig["mapQuery"]}" target="_blank" style="color: #fef08a; text-decoration: underline; font-size: 13px;">Map</a>)</li>\n'
       )
 
     gigs_section_html += "        </ul>\n"
 
-# Render past shows list
+# Render past shows list (left-aligned)
 gigs_section_html += """        <!-- Past Gigs List -->
-        <h3 style="text-align: center; margin-top: 30px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold; ">Past Shows</h3>
-        <ul style="list-style: none; padding: 0; line-height: 2.0; color: rgba(255, 255, 255, 0.8); text-align: center;">\n"""
+        <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 18px; color: #fef08a; font-weight: bold;">Past Shows</h3>
+        <ul style="list-style: none; padding: 0; line-height: 2.0; color: rgba(255, 255, 255, 0.8);">\n"""
 
 for gig in past:
   gigs_section_html += (
-      f"            <li>{gig['displayDate']} — {gig['venue']}, "
+      f"            <li style=\"margin-bottom: 8px;\">• {gig['displayDate']} — {gig['venue']}, "
       f"{gig['location']}</li>\n"
   )
 
