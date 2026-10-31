@@ -81,17 +81,18 @@ if upcoming:
       else first_gig["venue"]
   )
 
-  # Format location + optional details separated by a pipe
-  location_details = first_gig["location"]
+  # Optional details line for hero card
+  details_hero_html = ""
   if first_gig.get("details"):
-    location_details += f' | <span style="color: #fef08a; font-weight: bold;">{first_gig["details"]}</span>'
+    details_hero_html = f'<div style="font-size: 15px; color: #fef08a; font-weight: bold; margin-bottom: 15px;">{first_gig["details"]}</div>'
 
   gigs_section_html += f"""        <!-- Upcoming Show Card -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3);">
             <div style="color: #fef08a; font-weight: bold; text-transform: uppercase; font-size: 18px; letter-spacing: 1px; margin-bottom: 12px;">Next Up</div>
             <div style="font-size: 22px; color: #fef08a; font-weight: bold; margin-bottom: 6px;">{venue_display}</div>
             <div style="font-size: 16px; color: #ffffff; font-weight: bold; margin-bottom: 6px;">{first_gig['displayDate']}{time_disp}</div>
-            <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: 15px;">{location_details}</div>
+            <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: { '6px' if first_gig.get('details') else '15px' };">{first_gig['location']}</div>
+            {details_hero_html}
             <a href="https://maps.google.com/?q={first_gig['mapQuery']}" target="_blank" style="background-color: #ffffff; color: #0284c7; padding: 10px 20px; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block;">
                 📍 Map & Directions
             </a>
@@ -112,14 +113,15 @@ if upcoming:
       )
       t_disp = format_time(gig["time"])
 
-      # Format location + optional details for subsequent shows
-      sub_loc_details = f"{gig['location']}"
+      # Optional details line for subsequent shows
+      sub_details_html = ""
       if gig.get("details"):
-        sub_loc_details += f' | <span style="color: #fef08a;">{gig["details"]}</span>'
+        sub_details_html = f'<div style="font-size: 14px; color: #fef08a; font-weight: bold; margin-top: 3px;">{gig["details"]}</div>'
 
       gigs_section_html += f"""            <li style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
                 <div style="font-size: 15px; color: #ffffff; font-weight: bold; margin-bottom: 4px;">{gig['displayDate']}{t_disp}</div>
-                <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9);">{v_display}, {sub_loc_details} <a href="https://maps.google.com/?q={gig['mapQuery']}" target="_blank" style="color: #fef08a; text-decoration: underline; font-size: 13px; margin-left: 6px;">(Map)</a></div>
+                <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: 2px;">{v_display} — {gig['location']} <a href="https://maps.google.com/?q={gig['mapQuery']}" target="_blank" style="color: #fef08a; text-decoration: underline; font-size: 13px; margin-left: 6px;">(Map)</a></div>
+                {sub_details_html}
             </li>\n"""
 
     gigs_section_html += "        </ul>\n"
