@@ -28,6 +28,22 @@ def format_time(time_str):
   return f" @ {time_str}"
 
 
+def format_details(details_str):
+  """Replaces pipes with bold white pipes for better mobile readability."""
+  if not details_str:
+    return ""
+  # Split by pipe, strip spaces, and rejoin with a bold white pipe span
+  parts = [p.strip() for p in details_str.split("|")]
+  pipe_html = (
+      ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span> '
+  )
+  joined_parts = pipe_html.join(parts)
+  return (
+      f'<div style="font-size: 14px; color: #fef08a; font-weight:'
+      f' bold; margin-top: 3px;">{joined_parts}</div>'
+  )
+
+
 # --- 3. BUILD INDEX.HTML SNIPPET ---
 if upcoming:
   next_gig = upcoming[0]
@@ -84,7 +100,14 @@ if upcoming:
   # Optional details line for hero card
   details_hero_html = ""
   if first_gig.get("details"):
-    details_hero_html = f'<div style="font-size: 15px; color: #fef08a; font-weight: bold; margin-bottom: 15px;">{first_gig["details"]}</div>'
+    # Using a slightly larger font for the hero card details line
+    raw_d = first_gig["details"]
+    parts = [p.strip() for p in raw_d.split("|")]
+    pipe_html = (
+        ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span>'
+        " "
+    )
+    details_hero_html = f'<div style="font-size: 15px; color: #fef08a; font-weight: bold; margin-bottom: 15px;">{pipe_html.join(parts)}</div>'
 
   gigs_section_html += f"""        <!-- Upcoming Show Card -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3);">
@@ -112,11 +135,7 @@ if upcoming:
           else gig["venue"]
       )
       t_disp = format_time(gig["time"])
-
-      # Optional details line for subsequent shows
-      sub_details_html = ""
-      if gig.get("details"):
-        sub_details_html = f'<div style="font-size: 14px; color: #fef08a; font-weight: bold; margin-top: 3px;">{gig["details"]}</div>'
+      sub_details_html = format_details(gig.get("details"))
 
       gigs_section_html += f"""            <li style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
                 <div style="font-size: 15px; color: #ffffff; font-weight: bold; margin-bottom: 4px;">{gig['displayDate']}{t_disp}</div>
