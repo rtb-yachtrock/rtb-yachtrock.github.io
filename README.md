@@ -22,3 +22,7 @@ https://rtb-yachtrock.github.io/
 
 * **Do not edit `gigs.html` directly.** 
 * To add, remove, or modify upcoming shows, update `gigs.json` and run the build script (or let the automated GitHub Action workflow handle it upon commit).
+
+## Note on Media
+- **Pictures:** Keep compressed under 200 KB for fast mobile load times.
+- **Videos:** Link or embed via YouTube rather than hosting large video files directly on the server.
