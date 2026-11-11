@@ -29,17 +29,22 @@ def format_time(time_str):
 
 
 def format_details(details_str):
-  """Replaces pipes with bold white pipes for better mobile readability."""
+  """Replaces pipes with bold white pipes and adjusts font size dynamically if long."""
   if not details_str:
     return ""
+  
+  # Dynamic sizing check for mobile wrapping prevention
+  font_size = "12px" if len(details_str) > 42 else "14px"
+  line_height = "1.4" if len(details_str) > 42 else "1.2"
+
   parts = [p.strip() for p in details_str.split("|")]
   pipe_html = (
       ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span> '
   )
   joined_parts = pipe_html.join(parts)
   return (
-      f'<div style="font-size: 14px; color: #fef08a; font-weight:'
-      f' bold; margin-top: 3px;">{joined_parts}</div>'
+      f'<div style="font-size: {font_size}; color: #fef08a; font-weight:'
+      f' bold; margin-top: 3px; line-height: {line_height};">{joined_parts}</div>'
   )
 
 
@@ -111,16 +116,18 @@ if upcoming:
       else first_gig["venue"]
   )
 
-  # Details and Cover hero card lines
+  # Dynamic sizing check for hero card details
   details_hero_html = ""
   if first_gig.get("details"):
     raw_d = first_gig["details"]
+    font_size = "12px" if len(raw_d) > 42 else "14px"
+    line_height = "1.4" if len(raw_d) > 42 else "1.2"
     parts = [p.strip() for p in raw_d.split("|")]
     pipe_html = (
         ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span>'
         " "
     )
-    details_hero_html = f'<div style="font-size: 14px; color: #fef08a; font-weight: bold; margin-top: 4px; margin-bottom: 2px;">{pipe_html.join(parts)}</div>'
+    details_hero_html = f'<div style="font-size: {font_size}; color: #fef08a; font-weight: bold; margin-top: 4px; margin-bottom: 2px; line-height: {line_height};">{pipe_html.join(parts)}</div>'
 
   cover_hero_html = ""
   if first_gig.get("cover"):
