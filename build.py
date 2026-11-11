@@ -31,7 +31,7 @@ def format_time(time_str):
 def format_details(details_str):
   """Replaces pipes with bold white pipes and adjusts font size dynamically if long."""
   if not details_str:
-    return ""
+    return "", "14px"
   
   # Dynamic sizing check for mobile wrapping prevention
   font_size = "12px" if len(details_str) > 42 else "14px"
@@ -42,14 +42,15 @@ def format_details(details_str):
       ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span> '
   )
   joined_parts = pipe_html.join(parts)
-  return (
+  html = (
       f'<div style="font-size: {font_size}; color: #fef08a; font-weight:'
       f' bold; margin-top: 3px; line-height: {line_height};">{joined_parts}</div>'
   )
+  return html, font_size
 
 
-def format_cover(cover_str):
-  """Formats the cover charge and age restrictions line."""
+def format_cover(cover_str, font_size="14px"):
+  """Formats the cover charge and age restrictions line in yellow with white pipes."""
   if not cover_str:
     return ""
   parts = [p.strip() for p in cover_str.split("|")]
@@ -58,7 +59,7 @@ def format_cover(cover_str):
   )
   joined_parts = pipe_html.join(parts)
   return (
-      f'<div style="font-size: 14px; color: #ffffff; font-weight:'
+      f'<div style="font-size: {font_size}; color: #fef08a; font-weight:'
       f' bold; margin-top: 3px;">{joined_parts}</div>'
   )
 
@@ -116,28 +117,11 @@ if upcoming:
       else first_gig["venue"]
   )
 
-  # Dynamic sizing check for hero card details
-  details_hero_html = ""
-  if first_gig.get("details"):
-    raw_d = first_gig["details"]
-    font_size = "12px" if len(raw_d) > 42 else "14px"
-    line_height = "1.4" if len(raw_d) > 42 else "1.2"
-    parts = [p.strip() for p in raw_d.split("|")]
-    pipe_html = (
-        ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span>'
-        " "
-    )
-    details_hero_html = f'<div style="font-size: {font_size}; color: #fef08a; font-weight: bold; margin-top: 4px; margin-bottom: 2px; line-height: {line_height};">{pipe_html.join(parts)}</div>'
-
-  cover_hero_html = ""
-  if first_gig.get("cover"):
-    raw_c = first_gig["cover"]
-    parts = [p.strip() for p in raw_c.split("|")]
-    pipe_html = (
-        ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span>'
-        " "
-    )
-    cover_hero_html = f'<div style="font-size: 14px; color: #ffffff; font-weight: bold; margin-top: 2px; margin-bottom: 15px;">{pipe_html.join(parts)}</div>'
+  # Get details HTML and its dynamically computed font size
+  details_hero_html, hero_font_size = format_details(first_gig.get("details"))
+  
+  # Pass that same font size to the cover line so they match perfectly
+  cover_hero_html = format_cover(first_gig.get("cover"), font_size=hero_font_size)
 
   margin_bottom_loc = (
       "4px" if (first_gig.get("details") or first_gig.get("cover")) else "15px"
@@ -151,9 +135,11 @@ if upcoming:
             <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: {margin_bottom_loc};">{first_gig['location']}</div>
             {details_hero_html}
             {cover_hero_html}
-            <a href="https://maps.google.com/?q={first_gig['mapQuery']}" target="_blank" style="background-color: #ffffff; color: #0284c7; padding: 10px 20px; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block;">
-                📍 Map & Directions
-            </a>
+            <div style="margin-top: 15px;">
+                <a href="https://maps.google.com/?q={first_gig['mapQuery']}" target="_blank" style="background-color: #ffffff; color: #0284c7; padding: 10px 20px; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block;">
+                    📍 Map & Directions
+                </a>
+            </div>
         </div>\n"""
 
   # Render any SUBSEQUENT upcoming shows as stacked rows
@@ -170,8 +156,8 @@ if upcoming:
           else gig["venue"]
       )
       t_disp = format_time(gig["time"])
-      sub_details_html = format_details(gig.get("details"))
-      sub_cover_html = format_cover(gig.get("cover"))
+      sub_details_html, sub_font_size = format_details(gig.get("details"))
+      sub_cover_html = format_cover(gig.get("cover"), font_size=sub_font_size)
 
       gigs_section_html += f"""            <li style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
                 <div style="font-size: 15px; color: #ffffff; font-weight: bold; margin-bottom: 4px;">{gig['displayDate']}{t_disp}</div>
