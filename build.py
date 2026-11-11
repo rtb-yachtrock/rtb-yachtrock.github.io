@@ -32,7 +32,6 @@ def format_details(details_str):
   """Replaces pipes with bold white pipes for better mobile readability."""
   if not details_str:
     return ""
-  # Split by pipe, strip spaces, and rejoin with a bold white pipe span
   parts = [p.strip() for p in details_str.split("|")]
   pipe_html = (
       ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span> '
@@ -40,6 +39,21 @@ def format_details(details_str):
   joined_parts = pipe_html.join(parts)
   return (
       f'<div style="font-size: 14px; color: #fef08a; font-weight:'
+      f' bold; margin-top: 3px;">{joined_parts}</div>'
+  )
+
+
+def format_cover(cover_str):
+  """Formats the cover charge and age restrictions line."""
+  if not cover_str:
+    return ""
+  parts = [p.strip() for p in cover_str.split("|")]
+  pipe_html = (
+      ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span> '
+  )
+  joined_parts = pipe_html.join(parts)
+  return (
+      f'<div style="font-size: 14px; color: #ffffff; font-weight:'
       f' bold; margin-top: 3px;">{joined_parts}</div>'
   )
 
@@ -97,25 +111,39 @@ if upcoming:
       else first_gig["venue"]
   )
 
-  # Optional details line for hero card
+  # Details and Cover hero card lines
   details_hero_html = ""
   if first_gig.get("details"):
-    # Using a slightly larger font for the hero card details line
     raw_d = first_gig["details"]
     parts = [p.strip() for p in raw_d.split("|")]
     pipe_html = (
         ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span>'
         " "
     )
-    details_hero_html = f'<div style="font-size: 15px; color: #fef08a; font-weight: bold; margin-bottom: 15px;">{pipe_html.join(parts)}</div>'
+    details_hero_html = f'<div style="font-size: 14px; color: #fef08a; font-weight: bold; margin-top: 4px; margin-bottom: 2px;">{pipe_html.join(parts)}</div>'
+
+  cover_hero_html = ""
+  if first_gig.get("cover"):
+    raw_c = first_gig["cover"]
+    parts = [p.strip() for p in raw_c.split("|")]
+    pipe_html = (
+        ' <span style="color: #ffffff; font-weight: bold; margin: 0 4px;">|</span>'
+        " "
+    )
+    cover_hero_html = f'<div style="font-size: 14px; color: #ffffff; font-weight: bold; margin-top: 2px; margin-bottom: 15px;">{pipe_html.join(parts)}</div>'
+
+  margin_bottom_loc = (
+      "4px" if (first_gig.get("details") or first_gig.get("cover")) else "15px"
+  )
 
   gigs_section_html += f"""        <!-- Upcoming Show Card -->
         <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3);">
             <div style="color: #fef08a; font-weight: bold; text-transform: uppercase; font-size: 18px; letter-spacing: 1px; margin-bottom: 12px;">Next Up</div>
             <div style="font-size: 22px; color: #fef08a; font-weight: bold; margin-bottom: 6px;">{venue_display}</div>
             <div style="font-size: 16px; color: #ffffff; font-weight: bold; margin-bottom: 6px;">{first_gig['displayDate']}{time_disp}</div>
-            <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: { '6px' if first_gig.get('details') else '15px' };">{first_gig['location']}</div>
+            <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: {margin_bottom_loc};">{first_gig['location']}</div>
             {details_hero_html}
+            {cover_hero_html}
             <a href="https://maps.google.com/?q={first_gig['mapQuery']}" target="_blank" style="background-color: #ffffff; color: #0284c7; padding: 10px 20px; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block;">
                 📍 Map & Directions
             </a>
@@ -136,22 +164,23 @@ if upcoming:
       )
       t_disp = format_time(gig["time"])
       sub_details_html = format_details(gig.get("details"))
+      sub_cover_html = format_cover(gig.get("cover"))
 
       gigs_section_html += f"""            <li style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
                 <div style="font-size: 15px; color: #ffffff; font-weight: bold; margin-bottom: 4px;">{gig['displayDate']}{t_disp}</div>
                 <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: 2px;">{v_display} — {gig['location']} <a href="https://maps.google.com/?q={gig['mapQuery']}" target="_blank" style="color: #fef08a; text-decoration: underline; font-size: 13px; margin-left: 6px;">(Map)</a></div>
                 {sub_details_html}
+                {sub_cover_html}
             </li>\n"""
 
     gigs_section_html += "        </ul>\n"
 else:
-  # Fallback message if there are zero upcoming shows
   gigs_section_html += """        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 12px; margin-bottom: 40px; border: 1px solid rgba(255, 255, 255, 0.3); text-align: center;">
             <div style="font-size: 18px; color: #fef08a; font-weight: bold; margin-bottom: 8px;">No upcoming shows right now</div>
             <div style="font-size: 15px; color: rgba(255, 255, 255, 0.9); font-style: italic;">Check back soon for new dates and venues!</div>
         </div>\n"""
 
-# Render past shows list (stacked cleanly as well)
+# Render past shows list
 gigs_section_html += """        <!-- Past Gigs List -->
         <h3 style="margin-top: 30px; margin-bottom: 20px; font-size: 18px; color: #fef08a; font-weight: bold;">Past Shows</h3>
         <ul style="list-style: none; padding: 0; color: rgba(255, 255, 255, 0.8);">\n"""
