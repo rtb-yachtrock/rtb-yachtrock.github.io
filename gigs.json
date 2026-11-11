@@ -7,7 +7,8 @@
     "venueUrl": "https://www.montrosesaloon.com/",
     "location": "Chicago, IL",
     "mapQuery": "2933+W+Montrose+Ave+Chicago+IL+60618",
-    "details": "With Joe Dilillo (6:00 pm), Kevin Davey (8:00pm) | $15 @ the door | 21+"
+    "details": "With Joe Dilillo (6:00 pm), Kevin Davey (8:00 pm)",
+    "cover": "$15 @ the door | 21+"
   },
   {
     "date": "2026-11-06",
@@ -17,7 +18,8 @@
     "venueUrl": "https://www.friendlymusic.community/",
     "location": "Berwyn, IL",
     "mapQuery": "6733+Roosevelt+Rd+Berwyn+IL+60402",
-    "details": "With Succotash | No Cover"
+    "details": "With Succotash",
+    "cover": "No Cover"
   },
   {
     "date": "2026-09-06",
@@ -27,7 +29,8 @@
     "venueUrl": "https://www.friendlymusic.community/",
     "location": "Berwyn, IL",
     "mapQuery": "6733+Roosevelt+Rd+Berwyn+IL+60402",
-    "details": "With Watt Soda | No Cover"
+    "details": "With Watt Soda",
+    "cover": "No Cover"
   },
   {
     "date": "2026-06-16",
@@ -37,7 +40,8 @@
     "venueUrl": "",
     "location": "Chicago, IL",
     "mapQuery": "2044+North+Western+Ave+Chicago+IL",
-    "details": "No Cover"
+    "details": "",
+    "cover": "No Cover"
   },
   {
     "date": "2026-05-29",
@@ -47,6 +51,7 @@
     "venueUrl": "https://www.friendlymusic.community/",
     "location": "Berwyn, IL",
     "mapQuery": "6733+Roosevelt+Rd+Berwyn+IL+60402",
-    "details": "With Succotash & Klump | No Cover"
+    "details": "With Succotash & Klump",
+    "cover": "No Cover"
   }
 ]
