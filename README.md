@@ -23,6 +23,21 @@ https://rtb-yachtrock.github.io/
 * **Do not edit `gigs.html` directly.** 
 * To add, remove, or modify upcoming shows, update `gigs.json` and run the build script (or let the automated GitHub Action workflow handle it upon commit).
 
+## Updating Gigs & Rebuilding Pages
+
+`index.html` and `gigs.html` are generated from `gigs.json` using `build.py`.
+
+### Adding or editing a gig
+1. Edit `gigs.json` on GitHub (`main` branch) and commit the changes.
+2. The **Build Gigs Website** workflow automatically runs `build.py` and commits updated `index.html` and `gigs.html` files.
+3. GitHub Pages then publishes the updated site.
+
+### Clearing past gigs manually (when `gigs.json` wasn't edited)
+1. Open the **Actions** tab in the repository.
+2. Select **Build Gigs Website** on the left.
+3. Click **Run workflow** (select the `main` branch if prompted) and confirm **Run workflow**.
+4. Wait for the run to finish with a green checkmark so `index.html` and `gigs.html` update.
+
 ## Note on Media
 - **Pictures:** Keep compressed under 200 KB for fast mobile load times.
 - **Videos:** Link or embed via YouTube rather than hosting large video files directly on the server.
