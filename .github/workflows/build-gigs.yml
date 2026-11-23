@@ -2,9 +2,11 @@ name: Build Gigs Website
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'gigs.json'
-      - 'build.py'
+  workflow_dispatch:
 
 jobs:
   build:
