@@ -41,3 +41,10 @@ https://rtb-yachtrock.github.io/
 ## Note on Media
 - **Pictures:** Keep compressed under 200 KB for fast mobile load times.
 - **Videos:** Link or embed via YouTube rather than hosting large video files directly on the server.
+
+## Mailing List & Form Setup
+- **Provider:** Web3Forms (`https://api.web3forms.com/submit`)
+- **Recipient Email:** `rtb.yachtrock@gmail.com`
+- **Access Key:** `2e67b624-3fef-4465-a84c-011264d581db` (embedded in `contact.html` via `<input type="hidden" name="access_key" value="2e67b624-3fef-4465-a84c-011264d581db">`)
+- **Subject Line:** `New Subscriber`
+- **Spam Protection:** Includes hidden `botcheck` input field.
